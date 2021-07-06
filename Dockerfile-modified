@@ -1,0 +1,5 @@
+FROM docker.smilecdr.com/smilecdr:2021.05.R01
+
+WORKDIR /home/smile/smilecdr
+
+copy ./cdr-config-Master-modified.properties ./classes/cdr-config-Master.properties
