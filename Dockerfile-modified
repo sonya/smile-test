@@ -1,5 +1,7 @@
-FROM docker.smilecdr.com/smilecdr:2021.05.R01
+FROM docker.smilecdr.com/smilecdr:2021.11.R01
 
 WORKDIR /home/smile/smilecdr
 
 copy ./cdr-config-Master-modified.properties ./classes/cdr-config-Master.properties
+
+copy ./hl7.fhir.us.core.json ./classes/package-specs/hl7.fhir.us.core.json

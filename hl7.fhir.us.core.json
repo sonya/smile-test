@@ -1,0 +1,6 @@
+{
+    "name" : "hl7.fhir.us.core",
+    "version" : "4.0.0",
+    "installMode" : "STORE_ONLY",
+    "fetchDependencies" : true
+}

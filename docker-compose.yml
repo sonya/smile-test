@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+
+  smilecdr:
+    build:
+      context: .
+      dockerfile: Dockerfile-modified
+    ports:
+      - "8000:8000" # FHIR requests
+      - "9000:9000" # JSON admin API
+      - "9100:9100" # Web admin console
+    depends_on:
+      - "db"
+
+  db:
+    image: postgres:12.5
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root_postgres_password
+      POSTGRES_DB: smile
+    command: ["postgres", "-c", "log_statement=all", "-c", "log_destination=stderr"]
