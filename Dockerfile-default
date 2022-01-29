@@ -1,4 +1,4 @@
-FROM docker.smilecdr.com/smilecdr:2021.05.R01
+FROM docker.smilecdr.com/smilecdr:2021.11.R02
 
 WORKDIR /home/smile/smilecdr
 
