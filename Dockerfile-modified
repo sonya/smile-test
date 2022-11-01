@@ -1,5 +1,6 @@
-FROM docker.smilecdr.com/smilecdr:2021.05.R01
+FROM docker.smilecdr.com/smilecdr:2022.08.R03
 
 WORKDIR /home/smile/smilecdr
 
 copy ./cdr-config-Master-modified.properties ./classes/cdr-config-Master.properties
+copy ./interceptors/target/interceptors-1.0-SNAPSHOT.jar ./customerlib/

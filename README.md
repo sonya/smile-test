@@ -1,19 +1,25 @@
-# client\_id\_mode configuration behavior
+# smile config comparisons
 
-This is a minimally reproducible test case that shows the behavior when setting `client_id_mode=NOT_ALLOWED` in an empty Smile CDR image.
+This is a minimally reproducible demonstration of Smile CDR configuration differences.
 
-1. Build the comparison images
+1. Build the interceptors
+   ```sh
+   cd interceptors
+   mvn compile
+   ```
+
+2. Build the comparison images
    ```sh
    docker build -f Dockerfile-default -t smile-default .
    docker build -f Dockerfile-modified -t smile-modified .
    ```
 
-2. Run the default image. All modules will start successfully.
+3. Run the default image.
    ```sh
-   docker run --rm smile-default
+   docker run -p 8000:8000 smile-default
    ```
 
-3. Run the modified image. There will be many exception stack traces in the logs. The `subscription`, `fhir_endpoint`, `persistence`, `fhirweb_endpoint`, and  `package_registry` moduels will fail to start.
+4. Run the modified image.
    ```sh
-   docker run --rm smile-modified
+   docker run -p 8000:8000 smile-modified
    ```
